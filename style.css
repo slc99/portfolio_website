@@ -1,0 +1,210 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    font-family: 'Lato',serif;
+    margin: 0;
+}
+
+.big-flexbox-container {
+    display: flex;
+    flex-direction: row-reverse;
+    /* align-items: center; */
+    gap: 1.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.main-vertical-rule {
+    color: rgba(140,162,172,255);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+body {
+    max-width: 1600px;
+    margin: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    background: linear-gradient(#FAF9F6 70%, lightblue);
+    /* background-color: lightblue; */
+}
+.projects-section {
+    overflow-y: scroll;
+    height: calc(100vh - 2rem);
+    padding-right: 1.5rem;
+}
+.section__title--projects {
+    font-size: 3rem;
+    font-variant: small-caps;
+    text-decoration-line: underline;
+    padding-bottom: 1rem;   
+}
+.portfolio-container {
+    flex-grow: 1;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin: auto;
+}
+@media (max-width: 1200px) {
+    .portfolio-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.portfolio-grid-item {
+    position: relative;
+    overflow-y: hidden;
+    box-shadow: .1rem 0.1rem .2rem rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+}
+.project-title {
+    display: block;
+    transition: 0.5s ease;
+    font-size: 3rem;
+    margin: 0rem;
+    text-shadow: black 0 0 0.5rem;
+    font-variant: small-caps;
+}
+.p {
+    margin: 0;
+}
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transition: 0.5s ease;
+    padding: 1rem;
+    /* For this transform, the 4rem is set by the height of the title */
+    transform: translateY(calc(100% - 5rem)); 
+    color: white;
+}
+.project-images {
+    transition: 0.5s ease;
+}
+.portfolio-grid-item:hover .project-images {
+    filter: brightness(50%);
+    /* transform: scale(1.1); */
+}
+.portfolio-grid-item:hover 
+    .image-overlay {
+    transform: translate(0,0)
+}
+
+/* About me column */
+
+.about-me {
+    height:100%;
+    flex-grow:1;
+    margin: auto;
+    /* position: fixed; */
+    width: 450px;
+    max-width: fit-content;
+    /* top: 100%; */
+    /* position: sticky; */
+}
+.about-me p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.about-me-pic-title {
+    margin: 12rem auto 2rem auto;
+    max-width: fit-content;
+    position: relative;
+    /* margin-top is a really bad solution becuase the box sizing is based on the font and not the image */
+    /* margin-top: 12rem;
+    margin-bottom: 2rem; */
+}
+/* .about-me-headshot-title-container {
+    margin: auto;
+    background-color: bisque;
+    max-width: 600px;
+} */
+.about-me--title {
+    font-size: 2.7rem;
+    bottom:0;
+}
+.about-me--title strong {
+    display: block;
+    padding: .5rem;
+    line-height: 1;
+    /* background-color: rgba(140,162,172,255); */
+    background-color:lightsalmon;
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+    white-space: nowrap;
+    width: 100%
+    /* margin: auto; */
+}
+.headshot-image {
+    position: absolute;
+    right: 1rem;
+    bottom: -1rem;
+    max-width: 60%;
+    z-index: -1;
+    /* border-radius: 1rem; */
+}
+
+.social-list-item__link {
+    transition: 0.2s ease;
+    color:lightsalmon;
+}
+.social-list-item__link:hover {
+    opacity: 0.7;
+    transform: scale(1.1)
+}
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-size: 3rem;
+    gap: 3rem;
+}
+@media (max-width: 850px) {
+    .big-flexbox-container {
+        flex-direction: column-reverse;
+    }
+    .projects-section {
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 0;
+    }
+    .portfolio-container {
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    .section__title--projects {
+        margin-top: -0.7rem;
+    }
+    .about-me--title {
+        font-size: 2rem;
+    }
+    .about-me--title strong {
+        font-size: 3rem;
+    }
+    .project-title {
+        font-size: 1rem;
+    }
+    .image-overlay {
+        transform: translate(0,0);
+        padding: .7rem 0.4rem 0.4rem 0.4rem;
+        line-height: 1.1rem;
+        background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6) 70%);
+        /* padding-top: 1rem; */
+    }
+    .about-me-pic-title {
+        margin: 8rem auto 2rem auto;
+    }
+}
+@media (max-width: 600px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+}
